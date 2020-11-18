@@ -46,7 +46,7 @@ public class Arbol {
 
 		//Metodos
 		
-		public void addAdbolAltura(String askArbolAltura) throws Exception {
+		public void addArbolAltura(String askArbolAltura) throws Exception {
 			
 			if (askArbolAltura.equals(""))
 				throw new Exception("Tienes que introducir una altura");

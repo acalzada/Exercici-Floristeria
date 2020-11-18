@@ -41,6 +41,24 @@ public class Flor {
 			Precio = precio;
 		}
 
-
+	//Metodos
+		
+		public void addFlorColor (String askFlorColor) throws Exception {
+			
+			if (askFlorColor.equals(""))
+				throw new Exception("Tienes que introducir un color");
+			
+			
+			setColor (askFlorColor);
+		}
+		
+		public void addFlorPrecio (String askFlorPrecio) throws Exception {
+			
+			if (askFlorPrecio.equals(""))
+				throw new Exception("Tienes que introducir un precio");
+			
+			
+			setPrecio (askFlorPrecio);
+}
 }
 
