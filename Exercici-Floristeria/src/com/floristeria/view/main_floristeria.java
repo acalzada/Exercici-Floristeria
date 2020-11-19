@@ -9,80 +9,100 @@ import javax.swing.JOptionPane;
 //import com.coets.project.Accion;
 
 public class main_floristeria {
+	private static FloristeriaRepo añadir = new FloristeriaRepo();
 
-	public static void main(String[] args) {
-	
-		//Explicacion
-		System.out.println("Creación de una floristeria:");
-		
-		//Preguntar al user quina acció vol fer: Crear Floristeria o Salir. 
-		
-				Scanner pregunta_user = new Scanner (System.in);
-				int respuesta_user=0;
+	public static void main(String[] args) throws Exception  {
+
+		Scanner e = new Scanner(System.in);
+		System.out.print("ingrese   nombre  floristeria:    ");
+		String nomf = e.next();
+		System.out.print("         floristeria:    " + nomf);
+		menu();
+		int opcion = e.nextInt();
+		while (opcion != 0) {
+			if (!(opcion == 0)) {
+                //AÑADE ARBOLES
+				if (opcion == 1) {
+
+					System.out.print("ingrese altura:    ");
+					String altura = e.next();
+					System.out.print("ingrese precio:     ");
+					String precio = e.next();
+					Arbol ar = new Arbol(altura, precio);
+					añadir.addArbol(ar);
+					//System.out.println( añadir.getAllArbols().size());
+				}
 				
-				boolean check = true;
-				while(check) {
-					System.out.println("Quieres crear floristeria, ver el stock o salir: \n 1 - Crear floristeria \n 2 - Ver Stock \n 3 - Salir");
-				respuesta_user = pregunta_user.nextInt();
+				//AÑADE FLORES
+				if (opcion == 2) {
+
+					System.out.print("ingrese color:    ");
+					String color = e.next();
+					System.out.print("ingrese precio:     ");
+					String precio = e.next();
+					Flor flr =new Flor(color, precio);
+					añadir.addFlor(flr);
+					//System.out.println( añadir.getAllArbols().size());
+				}
+
+				//3 ñade decoraciones
 				
-				switch (respuesta_user) {
-				
-				//Fer 3 casos. Cas 1= Crear floristeria. Cas 2 = Ver Stock Cas 3= Salir
-				//Cas 1 = Crear floristeria
-				//Ha contestado 1="Crear floristeria". Pedirle que añada arbol: altura y precio.
-				
-					case 1:
+				if (opcion == 3) {
+
+					System.out.print("ingrese material:    ");
+					menu1();
 					
-					//Introducir nombre floristeria
-					String pregunta_nombre  = new String ();
-					pregunta_nombre = JOptionPane.showInputDialog("Introduce el nombre de la floristeria");
-					
-					//CREAR FLORISTERIA
+					String material = e.next();
+					int opcion1 = e.nextInt();
+					while (opcion1 != 0) {
+					if (!(opcion == 0)) {
+						if (opcion1 == 1) {
 						
-					
-					//Imprimir nombre floristeria
-					
-					System.out.println("Bienvenido. Has creado tu floristeria " + pregunta_nombre +"A continuacion, debes introducir arboles, flores y decoracion"); 
-					
-//					Scanner datos_arbol = new Scanner(System.in);
-//					System.out.println("Crear arbol. Introduce la altura");
-//					int datos_arbol_altura = datos_arbol.nextInt();
-//					
-//					System.out.println("Crear arbol. Introduce el precio");
-//					int datos_arbol_precio = datos_arbol.nextInt();
-					
-					
-					//Introducir arboles	
-					int UsuarioIntroduceArbol;
-					do {
-						String AskArbolAltura = JOptionPane.showInputDialog("Introduce la altura del arbol");
-						Arbol.Altura (AskArbolAltura);	
-						String AskArbolPrecio = JOptionPane.showInputDialog("Introduce el precio del arbol");
-						Arbol.Precio (AskArbolPrecio);
+					       System.out.println("plastico");
+					    }else if (opcion1 == 2) {
+						System.out.println("material:   madera");
+					}
 						
-						UsuarioIntroduceArbol = JOptionPane.showConfirmDialog(null, "Quieres introducir otro Arbol?", null, JOptionPane.YES_NO_OPTION);		
-					
-					} while (UsuarioIntroduceArbol==0);
-					
-					//Imprimir propietats del arbol
-					
-					System.out.println("Nuevo arbol. Altura: " + Arbol.Altura + ". Precio: " + Arbol.Precio);
-					
-				
-					
-					
-		//Cas 3 = Salir
-				case 3:	
-					check = false;
-					break;
-
-
-				
+					}
+					}
+					System.out.println("ingrese precio:     ");
+					String precio = e.next();
+					Decoracion mop =new Decoracion(material, precio);
+					añadir.addDecoracion(mop);
+					//System.out.println( añadir.getAllArbols().size());
 				
 				}
-		}
-		}
 
+				
+				
+				// Cas 4 = Stock
+				
+				if (opcion == 4) {
+					System.out.println( "STOCKS ARBOLES:  "+añadir.getAllArbols().size());
+					System.out.println( "STOCKS FLORES:  " +añadir.getAllFlors().size());
+					System.out.println( "STOCKS DECORACIONES:  "+añadir.getAllDecoracion().size());
+				}
+
+			   }
+
+			menu();
+			opcion = e.nextInt();
+		}
+		e.close();
+	}
+		
 	
+	public static void menu() {
+		System.out.println("      \n Elige lo que deseas hacer     ");
+		System.out.println("[1] AÑADE ARBOL");
+		System.out.println("[2] AÑADE FLOR");
+		System.out.println("[3] AÑADE DECORACION ");
+		System.out.println("[4] STOCK");
+		System.out.println("[0] SALIR");
+	}
+
+	public static void menu1() {
+		System.out.println("[1] plastico   + [2] madera  ");
+	}
 
 }

@@ -8,11 +8,11 @@ public class Arbol extends Precio{
 	//Atributos de precio alturadddd
 	
 			public String Altura;
-			public String Precio;
+			
 		
 		
 			public Arbol (String Altura, String Precio) throws Exception {
-			
+				super(Precio);
 			
 			//Que no acepte campos vacios
 			

@@ -19,13 +19,10 @@ public class Floristeria {
 	
 	//Constructor
 	
-	public Floristeria(String nombre, List<com.floristeria.project.Arbol> arboles,
-			List<com.floristeria.project.Flor> flores, List<Decoracion> decoracion) {
+	public Floristeria(String nombre) {
 		super();
 		Nombre = nombre;
-		Arboles = arboles;
-		Flores = flores;
-		this.decoracion = decoracion;
+		
 	}
 	
 	//Getters i setters
@@ -54,7 +51,9 @@ public class Floristeria {
 	public void setDecoracion(List<Decoracion> decoracion) {
 		this.decoracion = decoracion;
 	}
-	
+	public String toString() {
+		return "Arboles=" + Arboles ;
+	}
 	
 	
 	

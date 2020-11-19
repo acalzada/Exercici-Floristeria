@@ -1,15 +1,15 @@
 package com.floristeria.project;
 
-public class Flor {
+public class Flor extends Precio {
 
 		//Atributos
 	
 		public String Color;
-		public String Precio;
+		
 	
 	
 		public Flor (String Color, String Precio) throws Exception {
-		
+			super(Precio);
 		
 		//Que no acepte campos vacios
 		
@@ -22,7 +22,7 @@ public class Flor {
 		//Constructores
 		
 		this.Color = Color;
-		this.Precio = Precio;
+		
 		
 }
 		// Getters i Setters
@@ -43,22 +43,6 @@ public class Flor {
 
 	//Metodos
 		
-		public void addFlorColor (String askFlorColor) throws Exception {
-			
-			if (askFlorColor.equals(""))
-				throw new Exception("Tienes que introducir un color");
-			
-			
-			setColor (askFlorColor);
-		}
 		
-		public void addFlorPrecio (String askFlorPrecio) throws Exception {
-			
-			if (askFlorPrecio.equals(""))
-				throw new Exception("Tienes que introducir un precio");
-			
-			
-			setPrecio (askFlorPrecio);
-}
 }
 
