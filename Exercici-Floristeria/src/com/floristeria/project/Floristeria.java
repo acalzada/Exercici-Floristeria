@@ -12,11 +12,6 @@ public class Floristeria {
 	private List<Flor> Flores;
 	private List<Decoracion> decoracion;
 	
-	
-	
-	
-	
-	
 	//Constructor
 	
 	public Floristeria(String nombre) {
@@ -30,8 +25,8 @@ public class Floristeria {
 	public String getNombre() {
 		return Nombre;
 	}
-	public void setNombre(String nombre) {
-		Nombre = nombre;
+	public String setNombre() {
+		return Nombre;
 	}
 	public List<Arbol> getArboles() {
 		return Arboles;
@@ -48,12 +43,18 @@ public class Floristeria {
 	public List<Decoracion> getDecoracion() {
 		return decoracion;
 	}
+	
+	
 	public void setDecoracion(List<Decoracion> decoracion) {
 		this.decoracion = decoracion;
 	}
+
+	@Override
 	public String toString() {
 		return "Arboles=" + Arboles ;
 	}
+	
+	
 	
 	
 	

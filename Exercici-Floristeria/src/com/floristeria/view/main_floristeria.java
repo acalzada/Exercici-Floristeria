@@ -1,10 +1,8 @@
 package com.floristeria.view;
 import com.floristeria.project.*;
 
-
+//import java.util.List;
 import java.util.Scanner;
-
-import javax.swing.JOptionPane;
 
 //import com.coets.project.Accion;
 
