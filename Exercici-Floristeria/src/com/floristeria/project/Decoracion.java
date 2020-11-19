@@ -1,15 +1,15 @@
 package com.floristeria.project;
 
-public class Decoracion {
+public class Decoracion extends Precio {
 	
 		//Atributos
 	
 		public String Material;
-		public String Precio;
+		
 		
 	
 		public Decoracion (String Material, String Precio) throws Exception {
-		
+		Super();
 		
 		//Que no acepte campos vacios
 		
