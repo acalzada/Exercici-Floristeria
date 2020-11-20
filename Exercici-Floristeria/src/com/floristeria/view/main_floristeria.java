@@ -1,6 +1,7 @@
 package com.floristeria.view;
 import com.floristeria.project.*;
 
+import java.util.InputMismatchException;
 //import java.util.List;
 import java.util.Scanner;
 
@@ -50,22 +51,31 @@ public class main_floristeria {
 					System.out.print("ingrese material:    ");
 					menu1();
 					
-					String material = e.next();
-					int opcion1 = e.nextInt();
-					while (opcion1 != 0) {
-					if (!(opcion == 0)) {
-						if (opcion1 == 1) {
+					String material = "";
+					int opcion1 = 0;
+					do{
 						
-					       System.out.println("plastico");
-					    }else if (opcion1 == 2) {
-						System.out.println("material:   madera");
-					}
+						try{
+							opcion1 = e.nextInt();
+						}catch(InputMismatchException e1) {
+							System.out.println("Por favor escoge entra el número de la opción de material que deseas.");
+							menu1();
+						}
 						
-					}
-					}
+					}while(opcion1 != 1 && opcion1 != 2);
+					
+					if (opcion1 == 1) {
+				       System.out.println("material:   plastico");
+				       material = "plastico";
+				    }else if (opcion1 == 2) {
+				    	System.out.println("material:   madera");
+				    	material = "madera";
+				    }
+
+						
 					System.out.println("ingrese precio:     ");
 					String precio = e.next();
-					Decoracion mop =new Decoracion(material, precio);
+					Decoracion mop = new Decoracion(material, precio);
 					añadir.addDecoracion(mop);
 					//System.out.println( añadir.getAllArbols().size());
 				
