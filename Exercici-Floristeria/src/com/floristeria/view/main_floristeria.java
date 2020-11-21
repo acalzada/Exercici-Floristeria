@@ -11,6 +11,10 @@ import java.util.Scanner;
 
 /**
  * MAIN_APP
+ * 
+ * Esta APP es super molona por que te puedes cread una Floristeria y añadirle un montón de arbolitos, florecillas y decoraciones de múltiples materiales.
+ * 
+ * 
  * @author Miriam, Rossini, angel
  *
  */
