@@ -13,89 +13,103 @@ import java.util.Scanner;
  * @author angel
  *
  */
+/**
+ * @author angel
+ *
+ */
 public class main_floristeria {
 
-	//private static FloristeriaRepo añadir = new FloristeriaRepo();
-
+	// Declaración de constantes para cada una de las acciones.
+	// Facilita el poder cambiar la asociación entre acción y código a entrar por el usuario sin tener que modificar código del main.
+	// También facilita la lectura del código.
+	
+	private static final  String AÑADIR_ARBOL = "1";
+	private static final  String AÑADIR_FLOR = "2";
+	private static final  String AÑADIR_DECORACION = "3";
+	private static final  String MUESTRA_ESTOCK = "4";
+	private static final  String SALIR = "0";
+	
 	public static void main(String[] args) throws Exception  {
 		
-		
-		
+		// Se usará este scanner para todas las entradas del usuario.
 		Scanner userInput = new Scanner(System.in);
 		
+		// Forzamos al usuario a crear una floristeria para poder continuar.
+		Floristeria floristeria = crearFloristeria(userInput);
 		
+		
+		// Aquí ya podemos empezar a trabajar con la floristeria.
+		String action;
+		do {
+			muestraMenu();
+			action = userInput.next();
+			
+			switch(action) {
+			
+				case AÑADIR_ARBOL:
+									afegirArbre(floristeria, userInput);
+									break;
+				
+				case AÑADIR_FLOR:
+									afegirFlor(floristeria, userInput);
+									break;
+					
+				case AÑADIR_DECORACION:
+									afegirDecoracio(floristeria, userInput);
+									break;
+				
+				case MUESTRA_ESTOCK:
+									stock(floristeria);
+									break;
+									
+				case SALIR:
+									userInput.close();
+									System.out.println("\n Muchas gracias!! \n Hasta la próxima!!");				
+			}
+		}while(!action.equals(SALIR));
+	}		
+	
+	
+	
+	// Metodos de ayuda al Main
+	
+	
+	/**
+	 * Mostrar el menu de opciones disponibles para el usuario.
+	 */
+	public static void muestraMenu() {
+		System.out.println("\nElige lo que deseas hacer:");
+		System.out.println("[" + AÑADIR_ARBOL      + "] AÑADE ARBOL");
+		System.out.println("[" + AÑADIR_FLOR       + "] AÑADE FLOR");
+		System.out.println("[" + AÑADIR_DECORACION + "] AÑADE DECORACION ");
+		System.out.println("[" + MUESTRA_ESTOCK    + "] STOCK");
+		System.out.println("[" + SALIR             + "] SALIR");
+	}
+
+	
+	
+	
+	/**
+	 * MEtodo para crear la floristeria.
+	 * 
+	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
+	 * @return Floristeria. Devuelve una instancia del objeto Floristeria.
+	 */
+	public static Floristeria crearFloristeria(Scanner userInput) {
 		System.out.print("Ingrese nombre floristeria: ");
 		String nombreFloristeria = userInput.next();
 				
-		Floristeria floristeria = new Floristeria(nombreFloristeria);
-		
-		
-		
-		muestraMenu();
-		int accion = userInput.nextInt();
-		
-		while (accion != 0) {
-			if (!(accion == 0)) {
-                //AÑADE ARBOLES
-				if (accion == 1) {
-
-					afegirArbre(floristeria, userInput);
-				}
-				
-				//AÑADE FLORES
-				if (accion == 2) {
-
-					afegirFlor(floristeria, userInput);
-				}
-
-				//3 Añade decoraciones
-				
-				if (accion == 3) {
-
-					afegirDecoracio(floristeria, userInput);
-				
-				}
-
-				
-				
-				// Cas 4 = Stock
-				
-				if (accion == 4) {
-					stock(floristeria);
-				}
-
-			   }
-
-			muestraMenu();
-			accion = userInput.nextInt();
-		}
-		
-		userInput.close();
-		System.out.println("\n Muchas gracias!! \n Hasta la próxima!!");
-	}
-		
-	
-	public static void muestraMenu() {
-		System.out.println("\nElige lo que deseas hacer:");
-		System.out.println("[1] AÑADE ARBOL");
-		System.out.println("[2] AÑADE FLOR");
-		System.out.println("[3] AÑADE DECORACION ");
-		System.out.println("[4] STOCK");
-		System.out.println("[0] SALIR");
-	}
-
-	public static void menu1() {
-		System.out.println("[1] plastico   + [2] madera  ");
+		return new Floristeria(nombreFloristeria);
 	}
 	
 	
 	
-	public Floristeria crearFloristeria(String nombre) {
-		return new Floristeria(nombre);
-	}
-	
-	
-	
+	/**
+	 * MEtodo para añadir un arbol a la floristeria.
+	 * 
+	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
+	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
+	 */
 	public static void afegirArbre(Floristeria floristeria, Scanner userInput) {
 		System.out.print("Ingrese altura: ");
 		String altura = userInput.next();
@@ -112,6 +126,12 @@ public class main_floristeria {
 	
 	
 	
+	/**
+	 * Metodo para añadir una Flor a la floristeria
+	 * 
+	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
+	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
+	 */
 	public static void afegirFlor(Floristeria floristeria, Scanner userInput) {
 		System.out.print("ingrese color:    ");
 		String color = userInput.next();
@@ -130,6 +150,20 @@ public class main_floristeria {
 	
 	
 	
+	/**
+	 * Imprimir las opciones de materiales para decoración.
+	 */
+	private static void menu1() {
+		System.out.println("[1] plastico   + [2] madera  ");
+	}
+	
+	
+	/**
+	 * Metodo para añadir una Decoracion a la floristeria.
+	 * 
+	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
+	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
+	 */
 	public static void afegirDecoracio(Floristeria floristeria, Scanner userInput) {
 		System.out.print("ingrese material:    ");
 		menu1();
