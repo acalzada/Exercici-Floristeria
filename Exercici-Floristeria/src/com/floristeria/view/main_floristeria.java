@@ -10,11 +10,8 @@ import java.util.Scanner;
 //import com.coets.project.Accion;
 
 /**
- * @author angel
- *
- */
-/**
- * @author angel
+ * MAIN_APP
+ * @author Miriam, Rosinni, angel
  *
  */
 public class main_floristeria {
