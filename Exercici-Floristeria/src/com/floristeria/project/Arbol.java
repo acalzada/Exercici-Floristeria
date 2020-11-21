@@ -26,7 +26,7 @@ public class Arbol extends Precio {
 	}
 
 	public void setAltura(String altura) {
-		Altura = altura;
+		this.Altura = altura;
 	}
 
 }
