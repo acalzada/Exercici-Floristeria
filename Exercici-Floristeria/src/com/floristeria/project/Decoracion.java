@@ -1,5 +1,11 @@
 package com.floristeria.project;
 
+/**
+ * LA mejor clase que puedes encontrar en todo el mundo para crear decoraciones que sorprenderan a los más esquisitos y detallistas.
+ * 
+ * @author Miriam, Rossini, Angel
+ *
+ */
 public class Decoracion extends Precio {
 
 	// Atributos
