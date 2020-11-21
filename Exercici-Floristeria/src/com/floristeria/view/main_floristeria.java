@@ -28,11 +28,11 @@ public class main_floristeria {
 	
 	public static void main(String[] args) throws Exception  {
 		
-		// Se usará este scanner para todas las entradas del usuario.
+		// Se usará este scanner para obtener las acciones a realizar por el usuario.
 		Scanner userInput = new Scanner(System.in);
 		
 		// Forzamos al usuario a crear una floristeria para poder continuar.
-		Floristeria floristeria = crearFloristeria(userInput);
+		Floristeria floristeria = crearFloristeria();
 		
 		
 		// Aquí ya podemos empezar a trabajar con la floristeria.
@@ -44,15 +44,15 @@ public class main_floristeria {
 			switch(action) {
 			
 				case AÑADIR_ARBOL:
-									afegirArbre(floristeria, userInput);
+									afegirArbre(floristeria);
 									break;
 				
 				case AÑADIR_FLOR:
-									afegirFlor(floristeria, userInput);
+									afegirFlor(floristeria);
 									break;
 					
 				case AÑADIR_DECORACION:
-									afegirDecoracio(floristeria, userInput);
+									afegirDecoracio(floristeria);
 									break;
 				
 				case MUESTRA_ESTOCK:
@@ -89,13 +89,13 @@ public class main_floristeria {
 	/**
 	 * MEtodo para crear la floristeria.
 	 * 
-	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
 	 * @return Floristeria. Devuelve una instancia del objeto Floristeria.
 	 */
-	public static Floristeria crearFloristeria(Scanner userInput) {
+	public static Floristeria crearFloristeria() {
+		Scanner userInput = new Scanner(System.in);
 		System.out.print("Ingrese nombre floristeria: ");
 		String nombreFloristeria = userInput.next();
-				
+		userInput.close();		
 		return new Floristeria(nombreFloristeria);
 	}
 	
@@ -105,9 +105,9 @@ public class main_floristeria {
 	 * MEtodo para añadir un arbol a la floristeria.
 	 * 
 	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
-	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
 	 */
-	public static void afegirArbre(Floristeria floristeria, Scanner userInput) {
+	public static void afegirArbre(Floristeria floristeria) {
+		Scanner userInput = new Scanner(System.in);
 		System.out.print("Ingrese altura: ");
 		String altura = userInput.next();
 		
@@ -118,6 +118,8 @@ public class main_floristeria {
 			floristeria.addArbol( new Arbol(altura, precio) );
 		} catch (Exception e) {
 			System.out.println("No se ha podido añadir el arbol por el siguiente motivo: " + e.getMessage());
+		}finally {
+			userInput.close();
 		}
 	}
 	
@@ -127,9 +129,9 @@ public class main_floristeria {
 	 * Metodo para añadir una Flor a la floristeria
 	 * 
 	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
-	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
 	 */
-	public static void afegirFlor(Floristeria floristeria, Scanner userInput) {
+	public static void afegirFlor(Floristeria floristeria) {
+		Scanner userInput = new Scanner(System.in);
 		System.out.print("ingrese color:    ");
 		String color = userInput.next();
 		System.out.print("ingrese precio:     ");
@@ -141,6 +143,8 @@ public class main_floristeria {
 			
 		} catch (Exception e) {
 			System.out.println("No se ha podido añadir la flor por el siguiente motivo: " + e.getMessage());
+		}finally {
+			userInput.close();
 		}
 	}
 	
@@ -159,9 +163,9 @@ public class main_floristeria {
 	 * Metodo para añadir una Decoracion a la floristeria.
 	 * 
 	 * @param floristeria La instancia de Floristeria donde queremos añadir el arbol.
-	 * @param userInput Scanner creado previamente para recibir las entradas del usuario por teclado/consola.
 	 */
-	public static void afegirDecoracio(Floristeria floristeria, Scanner userInput) {
+	public static void afegirDecoracio(Floristeria floristeria) {
+		Scanner userInput = new Scanner(System.in);
 		System.out.print("ingrese material:    ");
 		menu1();
 		
@@ -203,6 +207,8 @@ public class main_floristeria {
 			
 		} catch (Exception e) {
 			System.out.println("No se ha podido añadir la decoración por el siguiente motivo: " + e.getMessage());
+		}finally {
+			userInput.close();
 		}
 		
 		//System.out.println( añadir.getAllArbols().size());
