@@ -3,6 +3,12 @@ package com.floristeria.project;
 //import java.util.List;
 
 
+/**
+ * Clase para crear las flores más bellas del mundo.
+ * 
+ * @author Miriam, Rossini, Angel
+ *
+ */
 public class Flor extends Precio {
 
 		//Atributos

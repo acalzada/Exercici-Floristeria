@@ -1,5 +1,11 @@
 package com.floristeria.project;
 
+/**
+ * Una clase increíble para crear objetos Arbol.
+ * 
+ * @author Miriam, Rossini, Angel
+ *
+ */
 public class Arbol extends Precio {
 
 	// Atributos de arbol
