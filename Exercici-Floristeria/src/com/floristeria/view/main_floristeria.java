@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  * MAIN_APP
- * @author Miriam, Rosinni, angel
+ * @author Miriam, Rossini, angel
  *
  */
 public class main_floristeria {
